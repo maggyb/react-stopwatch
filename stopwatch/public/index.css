@@ -44,7 +44,6 @@ body {
     color: #f7f7f7;
     font-size: 30px;
     background: none;
-    animation-duration: 4s;
     font-family: 'PT Mono', monospace;
 }
 
@@ -72,4 +71,13 @@ body {
 
 .lapContainer .timer {
     display: inline-block;
+}
+
+.button-lap {
+    border: none;
+    color: #00ccbc;
+    font-size: 23px;
+    background: none;
+    font-family: 'PT Mono', monospace;
+    cursor: pointer;
 }

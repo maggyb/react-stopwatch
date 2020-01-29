@@ -30,8 +30,7 @@ class Stopwatch extends React.Component {
   }
   resetTime = () => {
     clearInterval(this.timer);
-    localStorage.removeItem("myData")
-    this.setState({ lapTimes: [], timeElapsed: 0  });
+    this.setState({ timeElapsed: 0  });
   }
   startTimer = () => {
     // Using Date.now() seems more efficient than incrementing seconds ourselves
@@ -43,6 +42,11 @@ class Stopwatch extends React.Component {
     const time = Date.now() - this.startTime;
     this.setState({ timeElapsed: this.state.timeElapsed + time });
     this.startTime = Date.now();
+  }
+  resetLaps = () => {
+    localStorage.removeItem("myData")
+    this.setState({ lapTimes: []  });
+
   }
 
   render() {
@@ -65,6 +69,12 @@ class Stopwatch extends React.Component {
           </button>
         </div>
         <div className="lapContainer">
+          <button
+              className={lapTimes.length > 0 ? "button-lap" : "hide"}
+              onClick={this.resetLaps}
+            >
+            Clear laps
+          </button>
           {lapTimes.length > 0 && <Laps lapTimes={lapTimes} />}
         </div>
 
